@@ -1,0 +1,66 @@
+<div class="container my-5">
+  <div class="all">
+    <div class="text-center my-5 pt-5 gap-5">
+      <div class="title">
+        <h1>Wellcome to My App</h1>
+        <p>Sign Up to get started.</p>
+      </div>
+      @if (loading) {
+        <div class="input">
+          <form class="d-grid" [formGroup]="UserSignup" (submit)="onSubmit()">
+            <mat-form-field>
+              <mat-label>User Name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="FullName"
+                #name
+                (input)="getNameValue(name.value)"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="email"
+                formControlName="Email"
+                #email
+                (input)="getEmailValue(email.value)"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                formControlName="Password"
+                #password
+                (input)="getPasswordValue(password.value)"
+              />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="primary"
+              class="mb-3"
+              (click)="signUp()"
+              [disabled]="UserSignup.invalid"
+            >
+              Sign Up
+            </button>
+          </form>
+          <div class="icon" (click)="googleSign()">
+            <img class="google ms-4" src="/assets/search.png" alt="" />
+            <p>Sign Up with Google</p>
+          </div>
+          <p class="p text-center my-4" [routerLink]="['/log-in']">
+            Already have an account? Login
+          </p>
+        </div>
+      } @else {
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

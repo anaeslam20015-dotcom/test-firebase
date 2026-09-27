@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  justify-items: center;
+}
+
+.form {
+  width: 600px;
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+}
+
+button {
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 30px;
+  cursor: pointer;
+}
+.table-body {
+  width: 75%;
+}
+.tdbtn {
+  gap: 100px;
+}

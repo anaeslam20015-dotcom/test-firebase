@@ -1,0 +1,20 @@
+<div class="container my-5 pt-4 text-center">
+  <div class="title">
+    <h1 class="mb-3">Wellcome to My App</h1>
+  </div>
+  <div class="user d-grid justify-content-center">
+    <h3>Wellcome, {{ user?.displayName }}</h3>
+    <h3>Email: {{ user?.email }}</h3>
+    <button mat-raised-button color="primary" class="mt-2" (click)="logout()">
+      Log-out
+    </button>
+    <button
+      mat-raised-button
+      color="light"
+      class="mt-2"
+      [routerLink]="['/dashboard']"
+    >
+      dashboard
+    </button>
+  </div>
+</div>

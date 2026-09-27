@@ -1,0 +1,56 @@
+<div class="container my-5">
+  <div class="all">
+    <div class="text-center my-5 pt-5 gap-5">
+      <div class="title">
+        <h1>Wellcome to My App</h1>
+        <p>Login-in to get started.</p>
+      </div>
+      @if (loading) {
+        <div class="input">
+          <form class="d-grid" [formGroup]="UserLogin" (submit)="onSubmit()">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="email"
+                formControlName="Email"
+                #email
+                (input)="getEmailValue(email.value)"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                formControlName="Password"
+                #password
+                (input)="getPasswordValue(password.value)"
+              />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="primary"
+              class="mb-3"
+              (click)="login()"
+            >
+              Login
+            </button>
+          </form>
+          <!-- <div class="icon">
+            <img class="google ms-4" src="/assets/search.png" alt="" />
+            <img class="facebook ms-4" src="/assets/facebook.png" alt="" />
+            <img class="githup ms-4" src="assets/github-sign.png" alt="" />
+          </div> -->
+          <p class="p text-center my-2" [routerLink]="['/sign-up']">
+            Don't have an account? Sign Up
+          </p>
+        </div>
+      } @else {
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>
